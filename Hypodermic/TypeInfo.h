@@ -34,7 +34,7 @@ namespace Hypodermic
 
         bool operator==(const TypeInfo& rhs) const
         {
-            return intrinsicTypeInfo() == rhs.intrinsicTypeInfo();
+            return fullyQualifiedName() == rhs.fullyQualifiedName();
         }
 
         static std::string dotNetify(const std::string& typeName)
