@@ -32,7 +32,7 @@ namespace Hypodermic
         
         std::size_t hashCode() const override
         {
-            return std::hash< std::string >()(m_typeInfo.fullyQualifiedName());
+            return std::hash< std::type_index >()(m_typeInfo.intrinsicTypeInfo());
         }
 
         const TypeInfo& typeInfo() const override

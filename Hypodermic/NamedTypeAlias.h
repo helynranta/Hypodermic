@@ -34,7 +34,7 @@ namespace Hypodermic
         
         std::size_t hashCode() const override
         {
-            auto hashCode = std::hash< std::string >()(m_typeInfo.fullyQualifiedName());
+            auto hashCode = std::hash< std::type_index >()(m_typeInfo.intrinsicTypeInfo());
             return (hashCode * 397) ^ std::hash< std::string >()(m_name);
         }
 
