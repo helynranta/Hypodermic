@@ -17,14 +17,14 @@ namespace Hypodermic
     struct TypeInfo
     {
         explicit TypeInfo(const std::type_info& typeInfo)
-            : m_typeInfo(std::type_index(typeInfo))
-            , m_fullyQualifiedName(dotNetify(demangleTypeName(typeInfo.name())))
+            : m_typeInfo(&typeInfo)
+            , m_fullyQualifiedName(dotNetify(demangleTypeName(m_typeInfo->name())))
         {
         }
 
-        const std::type_index& intrinsicTypeInfo() const
+        const std::type_info& intrinsicTypeInfo() const
         {
-            return m_typeInfo;
+            return *m_typeInfo;
         }
 
         const std::string& fullyQualifiedName() const
@@ -34,7 +34,7 @@ namespace Hypodermic
 
         bool operator==(const TypeInfo& rhs) const
         {
-            return intrinsicTypeInfo() == rhs.intrinsicTypeInfo();
+            return fullyQualifiedName() == rhs.fullyQualifiedName();
         }
 
         static std::string dotNetify(const std::string& typeName)
@@ -66,7 +66,7 @@ namespace Hypodermic
         }
 
     private:
-        const std::type_index m_typeInfo;
+        const std::type_info* m_typeInfo;
         std::string m_fullyQualifiedName;
     };
 
@@ -99,7 +99,7 @@ namespace std
 
         size_t operator()(const Hypodermic::TypeInfo& value) const
         {
-            return hash< type_index >()(value.intrinsicTypeInfo());
+            return hash< type_index >()(type_index(value.intrinsicTypeInfo()));
         }
     };
 
