@@ -1,0 +1,19 @@
+{
+  "name" : "hypodermic",
+  "version-string" : "2.5.2",
+  "dependencies" : [
+    "boost-algorithm",
+    "boost-signals2",
+    "boost-range"
+  ],
+  "features": {
+    "tests": {
+      "description": "unit tests for the project",
+      "dependencies": [
+        "boost-format",
+        "boost-system",
+        "boost-test"
+      ]
+    }
+  }
+}

@@ -11,3 +11,5 @@ obj/**
 *ReSharper*
 *.VC.*
 .vs/*
+.idea
+cmake-build-*
