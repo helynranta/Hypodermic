@@ -8,12 +8,13 @@
 #include "Hypodermic/NamedTypeAlias.h"
 #include "Hypodermic/TypeAlias.h"
 #include "Hypodermic/TypeInfo.h"
+#include "HypodermicExport.h"
 
 
 namespace Hypodermic
 {
 
-    class TypeAliasKey
+    class HYPODERMIC_EXPORT TypeAliasKey
     {
     public:
         explicit TypeAliasKey(const std::shared_ptr< ITypeAlias >& typeAlias)

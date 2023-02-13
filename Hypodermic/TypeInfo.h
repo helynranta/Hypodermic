@@ -10,11 +10,12 @@
 # include <cxxabi.h>
 #endif /* __GNUC__ */
 
+#include "HypodermicExport.h"
 
 namespace Hypodermic
 {
 
-    struct TypeInfo
+    struct HYPODERMIC_EXPORT TypeInfo
     {
         explicit TypeInfo(const std::type_info& typeInfo)
             : m_typeInfo(&typeInfo)

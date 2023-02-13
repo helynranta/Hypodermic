@@ -18,14 +18,13 @@
 #include "Hypodermic/ResolutionException.h"
 #include "Hypodermic/TypeInfo.h"
 
-
 namespace Hypodermic
 {
 
     class Container;
 
 
-    class ComponentContext
+    class HYPODERMIC_EXPORT ComponentContext
     {
     public:
         ComponentContext(const std::shared_ptr< Container >& container,

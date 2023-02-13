@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <string>
 
+#include "Hypodermic/HypodermicExport.h"
 
 namespace Hypodermic
 {
@@ -10,7 +11,7 @@ namespace Hypodermic
     struct TypeInfo;
 
 
-    class ITypeAlias
+    class HYPODERMIC_EXPORT ITypeAlias
     {
     public:
         virtual ~ITypeAlias() = default;

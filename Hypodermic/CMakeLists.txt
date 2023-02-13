@@ -36,6 +36,7 @@ set(HEADER_FILES
         ExceptionBase.h
         FactoryWrapper.h
         Hypodermic.h
+        HypodermicExport.h
         ILoggerSink.h
         IMutableRegistrationScope.h
         InstanceAlreadyActivatingException.h
@@ -103,7 +104,9 @@ set(HEADER_FILES
 add_library(${PROJECT_NAME} INTERFACE ${HEADER_FILES})
 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 20)
-target_include_directories(${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
+target_include_directories(
+    ${PROJECT_NAME}
+        INTERFACE $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 install(
         TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}-config

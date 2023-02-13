@@ -7,12 +7,12 @@
 #include "Hypodermic/IRegistrationScope.h"
 #include "Hypodermic/IRuntimeRegistrationBuilder.h"
 #include "Hypodermic/NestedRegistrationScope.h"
-
+#include "Hypodermic/HypodermicExport.h"
 
 namespace Hypodermic
 {
 
-    class Container : public std::enable_shared_from_this< Container >
+    class HYPODERMIC_EXPORT Container : public std::enable_shared_from_this< Container >
     {
     private:
         struct PrivateKey {};

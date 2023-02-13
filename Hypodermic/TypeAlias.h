@@ -4,12 +4,12 @@
 
 #include "Hypodermic/ITypeAlias.h"
 #include "Hypodermic/TypeInfo.h"
-
+#include "Hypodermic/HypodermicExport.h"
 
 namespace Hypodermic
 {
 
-    class TypeAlias : public ITypeAlias
+    class HYPODERMIC_EXPORT TypeAlias : public ITypeAlias
     {
     public:
         explicit TypeAlias(const TypeInfo& typeInfo)
