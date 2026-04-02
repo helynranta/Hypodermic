@@ -202,6 +202,14 @@ namespace Hypodermic
     private:
         std::unordered_map< std::shared_ptr< IRegistration >, ActivationRegistry > m_activationRegistriesByRegistration;
         std::recursive_mutex m_mutex;
+
+    public:
+        void clearAlignedInstanceCache()
+        {
+            std::lock_guard< decltype(m_mutex) > lock(m_mutex);
+            for (auto& kv : m_activationRegistriesByRegistration)
+                kv.second.clearAlignedInstances();
+        }
     };
 
 } // namespace Hypodermic

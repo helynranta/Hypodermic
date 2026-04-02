@@ -69,6 +69,15 @@ namespace Hypodermic
         std::shared_ptr< IRegistrationScope > m_parentScope;
         std::shared_ptr< RegistrationScope > m_scope;
         mutable std::recursive_mutex m_mutex;
+
+    public:
+        void clearAlignedInstanceCache() override
+        {
+            m_parentScope->clearAlignedInstanceCache();
+            std::lock_guard< decltype(m_mutex) > lock(m_mutex);
+            if (m_scope != nullptr)
+                m_scope->clearAlignedInstanceCache();
+        }
     };
 
 } // namespace Hypodermic

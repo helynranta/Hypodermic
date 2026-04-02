@@ -94,6 +94,11 @@ namespace Hypodermic
             return componentContext.resolveErasedType(typeAliasKey);
         }
 
+        void clearAlignedInstanceCache()
+        {
+            m_registrationScope->clearAlignedInstanceCache();
+        }
+
     private:
         std::shared_ptr< IRegistrationScope > m_registrationScope;
         std::shared_ptr< IRuntimeRegistrationBuilder > m_runtimeRegistrationBuilder;

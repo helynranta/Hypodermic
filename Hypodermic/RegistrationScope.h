@@ -123,6 +123,12 @@ namespace Hypodermic
         std::unordered_map< TypeAliasKey, std::vector< std::shared_ptr< RegistrationContext > > > m_fallbackRegistrationContextsByBaseTypes;
         mutable std::recursive_mutex m_mutex;
         ResolutionContainer m_resolutionContainer;
+
+    public:
+        void clearAlignedInstanceCache() override
+        {
+            m_resolutionContainer.clearAlignedInstanceCache();
+        }
     };
 
 } // namespace Hypodermic

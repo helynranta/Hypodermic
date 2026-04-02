@@ -31,6 +31,11 @@ namespace Hypodermic
 
             return it->second;
         }
+
+        void clearAlignedInstances()
+        {
+            m_alignedInstances.clear();
+        }
         
     private:
         std::shared_ptr< void > m_activatedInstance;

@@ -22,6 +22,8 @@ namespace Hypodermic
         virtual bool tryGetRegistrations(const TypeAliasKey& typeAliasKey, std::vector< std::shared_ptr< RegistrationContext > >& registrationContexts) const = 0;
 
         virtual void copyTo(IMutableRegistrationScope& other) const = 0;
+
+        virtual void clearAlignedInstanceCache() {}
     };
 
 } // namespace Hypodermic
