@@ -1,19 +1,15 @@
+cmake_minimum_required(VERSION 3.15)
+
 project(Hypodermic.Tests)
-cmake_minimum_required(VERSION 2.6)
 
-
-find_package(Boost COMPONENTS system unit_test_framework)
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
-    link_directories(${Boost_LIBRARY_DIRS})
-endif()
-
+find_package(Boost REQUIRED COMPONENTS system unit_test_framework)
 
 set(HypodermicTests_sources
 
     main.cpp
 
     CircularDependencyTests.cpp
+    ClearAlignedInstanceCacheTests.cpp
     ContainerBuilderTests.cpp
     ContainerTests.cpp
     DefaultConstructibleTests.cpp
@@ -22,7 +18,6 @@ set(HypodermicTests_sources
     MemoryTests.cpp
     NamedTests.cpp
     NestedContainerTests.cpp
-    PerformanceTests.cpp
     PersistentInstanceRegistrationTests.cpp
     ProvidedDependenciesTests.cpp
     ProvidedInstanceFactoryRegistrationTests.cpp
@@ -34,11 +29,9 @@ set(HypodermicTests_sources
 
 include_directories("..")
 
-add_definitions(-DBOOST_TEST_DYN_LINK)
-
-add_executable(Hypodermic.Tests ${HypodermicTests_sources})
-target_link_libraries(Hypodermic.Tests ${Boost_LIBRARIES})
-
-add_test(cmake_Hypodermic.Tests ${CMAKE_CURRENT_BINARY_DIR}/Hypodermic.Tests --result_code=no --report_level=no)
-
-add_custom_command(TARGET Hypodermic.Tests POST_BUILD COMMAND ${CMAKE_CURRENT_BINARY_DIR}/Hypodermic.Tests)
+add_executable(${PROJECT_NAME} ${HypodermicTests_sources})
+target_compile_definitions(${PROJECT_NAME} PRIVATE -DBOOST_TEST_DYN_LINK)
+target_link_libraries(${PROJECT_NAME} Boost::boost Boost::unit_test_framework)
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
+add_test(cmake_${PROJECT_NAME} ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME} --result_code=no --report_level=no)
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME})

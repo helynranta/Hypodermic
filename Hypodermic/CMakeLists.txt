@@ -1,6 +1,8 @@
-project(Hypodermic)
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.15)
 
+project(Hypodermic)
+
+include(GNUInstallDirs)
 
 set(Hypodermic_headers
 
@@ -102,8 +104,27 @@ set(Hypodermic_headers
     With.h
 )
 
+add_library(${PROJECT_NAME} INTERFACE ${HEADER_FILES})
+set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 11)
+install(FILES ${Hypodermic_headers} DESTINATION include/${PROJECT_NAME})
+target_include_directories(${PROJECT_NAME} INTERFACE $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
-install(FILES ${Hypodermic_headers} DESTINATION include/Hypodermic)
+install(
+        TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}-config
+        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}/
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/
+)
+
+install(
+        EXPORT ${PROJECT_NAME}-config DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}
+)
+
+install(
+        DIRECTORY ${CMAKE_SOURCE_DIR}/${PROJECT_NAME}
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+        FILES_MATCHING PATTERN "*.hpp*" PATTERN "*.inl*" PATTERN "*.h*"
+)
 
 #########################################
 # pkgconfig

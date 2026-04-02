@@ -1,5 +1,8 @@
+cmake_minimum_required(VERSION 3.15)
+
 project(Hypodermic)
-cmake_minimum_required(VERSION 2.6)
+
+option(HYPODERMIC_ENABLE_TESTS "build unit tests" OFF)
 
 set(HYPODERMIC_VERSION_MAJOR "2")
 set(HYPODERMIC_VERSION_MINOR "5")
@@ -8,29 +11,8 @@ set(HYPODERMIC_VERSION
     "${HYPODERMIC_VERSION_MAJOR}.${HYPODERMIC_VERSION_MINOR}.${HYPODERMIC_VERSION_PATCH}"
 )
 
-enable_testing()
-
 # enable gcc specific stuff
 if(CMAKE_COMPILER_IS_GNUCXX)
-    if(NOT CXX11_ENABLED)
-        message(STATUS "Checking for g++ version >= 4.8")
-        execute_process(COMMAND ${CMAKE_CXX_COMPILER} -dumpversion OUTPUT_VARIABLE GCC_VERSION)
-        
-        if(GCC_VERSION VERSION_LESS 4.8)
-            message(FATAL_ERROR "g++ version is ${GCC_VERSION}")
-        endif()
-
-        include(CheckCXXCompilerFlag)
-        check_cxx_compiler_flag(-std=c++11 FLAG_CXX11)
-        if(FLAG_CXX11)
-            message(STATUS "C++11 features enabled")
-            set(CXX11_ENABLED ON CACHE INTERNAL "C++11 features enabled")
-        else()
-            message(FATAL_ERROR "g++ does not support the -std=c++11 flag")
-        endif()
-    endif()
-
-    set(COMPILER_FLAGS "-std=c++11")
     set(WARNING_FLAGS "-W -Wall")
     
     if(CMAKE_BUILD_TYPE STREQUAL "debug")
@@ -45,18 +27,6 @@ if(CMAKE_COMPILER_IS_GNUCXX)
     endif(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64")
 
 elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    if(NOT CXX11_ENABLED)
-        include(CheckCXXCompilerFlag)
-        check_cxx_compiler_flag(-std=c++11 FLAG_CXX11)
-        if(FLAG_CXX11)
-            message(STATUS "C++11 features enabled")
-            set(CXX11_ENABLED ON CACHE INTERNAL "C++11 features enabled")
-        else()
-            message(FATAL_ERROR "Clang does not support the -std=c++11 flag")
-        endif()
-    endif()
-
-    set(COMPILER_FLAGS "-std=c++11")
     set(WARNING_FLAGS "-W -Wall")
     
     if(CMAKE_BUILD_TYPE STREQUAL "debug")
@@ -74,10 +44,11 @@ endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_FLAGS} ${WARNING_FLAGS}")
 
-
 add_subdirectory(Hypodermic)
-add_subdirectory(Hypodermic.Tests)
-
+if (HYPODERMIC_ENABLE_TESTS)
+    enable_testing()
+    add_subdirectory(Hypodermic.Tests)
+endif()
 
 # uninstall target
 ##################
