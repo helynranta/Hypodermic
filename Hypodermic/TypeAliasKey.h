@@ -43,6 +43,16 @@ namespace Hypodermic
     };
 
 
+    inline TypeAliasKey createKeyForType(const TypeInfo& typeInfo)
+    {
+        return TypeAliasKey(std::make_shared< TypeAlias >(typeInfo));
+    }
+
+    inline TypeAliasKey createKeyForNamedType(const TypeInfo& typeInfo, const std::string& name)
+    {
+        return TypeAliasKey(std::make_shared< NamedTypeAlias >(typeInfo, name));
+    }
+
     template <class T>
     TypeAliasKey createKeyForType()
     {
@@ -53,16 +63,6 @@ namespace Hypodermic
     TypeAliasKey createKeyForNamedType(const std::string& name)
     {
         return createKeyForNamedType(Utils::getMetaTypeInfo< T >(), name);
-    }
-
-    inline TypeAliasKey createKeyForType(const TypeInfo& typeInfo)
-    {
-        return TypeAliasKey(std::make_shared< TypeAlias >(typeInfo));
-    }
-
-    inline TypeAliasKey createKeyForNamedType(const TypeInfo& typeInfo, const std::string& name)
-    {
-        return TypeAliasKey(std::make_shared< NamedTypeAlias >(typeInfo, name));
     }
 
 } // namespace Hypodermic
