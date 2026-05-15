@@ -1,7 +1,9 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <memory>
 #include <vector>
+#endif
 
 #include <boost/range/adaptor/reversed.hpp>
 

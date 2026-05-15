@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <exception>
 #include <sstream>
 #include <type_traits>
+#endif
 
 #include "Hypodermic/Pragmas.h"
 
@@ -175,7 +177,9 @@ namespace Hypodermic
 } // namespace Hypodermic
 
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <ostream>
+#endif
 
 
 namespace std

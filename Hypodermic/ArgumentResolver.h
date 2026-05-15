@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <functional>
 #include <memory>
 #include <vector>
+#endif
 
 #include "Hypodermic/FactoryWrapper.h"
 #include "Hypodermic/IsComplete.h"

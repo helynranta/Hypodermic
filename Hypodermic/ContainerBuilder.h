@@ -1,9 +1,11 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <functional>
 #include <memory>
 #include <unordered_map>
 #include <unordered_set>
+#endif
 
 #include "Hypodermic/Container.h"
 #include "Hypodermic/ContainerInstanceRegistration.h"

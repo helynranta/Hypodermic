@@ -1,7 +1,9 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <string>
 #include <utility>
+#endif
 
 #include "Hypodermic/ITypeAlias.h"
 #include "Hypodermic/TypeInfo.h"

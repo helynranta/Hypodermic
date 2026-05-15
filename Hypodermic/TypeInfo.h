@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <regex>
 #include <string>
 #include <typeinfo>
+#endif
 
 #include <boost/algorithm/string.hpp>
 
@@ -84,8 +86,10 @@ namespace Utils
 } // namespace Hypodermic
 
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <functional>
 #include <typeindex>
+#endif
 
 
 namespace std

@@ -1,7 +1,9 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <functional>
 #include <memory>
+#endif
 
 #include <boost/signals2.hpp>
 

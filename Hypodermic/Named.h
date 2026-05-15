@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <type_traits>
+#endif
 
 #include "Hypodermic/EnforceBaseOf.h"
 #include "Hypodermic/TypeAliasKey.h"

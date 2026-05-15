@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <memory>
 #include <mutex>
 #include <vector>
+#endif
 
 #include "Hypodermic/IMutableRegistrationScope.h"
 #include "Hypodermic/IRegistration.h"

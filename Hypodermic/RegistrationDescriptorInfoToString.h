@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <sstream>
 #include <string>
 #include <type_traits>
+#endif
 
 #include "Hypodermic/DependencyFactoryTag.h"
 #include "Hypodermic/MetaForEach.h"

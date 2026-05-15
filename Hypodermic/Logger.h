@@ -1,7 +1,9 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <memory>
 #include <string>
+#endif
 
 #include "Hypodermic/LogLevel.h"
 #include "Hypodermic/NoopLoggerSink.h"

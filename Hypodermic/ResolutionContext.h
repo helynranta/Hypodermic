@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <vector>
+#endif
 
 #include "Hypodermic/ActivatedRegistrationInfo.h"
 #include "Hypodermic/IResolutionContext.h"

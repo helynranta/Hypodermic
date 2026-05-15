@@ -1,7 +1,9 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <memory>
 #include <unordered_map>
+#endif
 
 #include "Hypodermic/PointerAlignment.h"
 #include "Hypodermic/TypeAliasKey.h"

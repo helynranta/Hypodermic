@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <iostream>
+#endif
 
 #include "Hypodermic/ILoggerSink.h"
 

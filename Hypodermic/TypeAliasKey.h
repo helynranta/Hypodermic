@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <cstdint>
 #include <functional>
 #include <memory>
+#endif
 
 #include "Hypodermic/ITypeAlias.h"
 #include "Hypodermic/NamedTypeAlias.h"

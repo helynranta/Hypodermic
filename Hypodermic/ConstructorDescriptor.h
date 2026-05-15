@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <functional>
 #include <memory>
 #include <type_traits>
+#endif
 
 #include "Hypodermic/ArgumentPack.h"
 #include "Hypodermic/ArgumentResolver.h"

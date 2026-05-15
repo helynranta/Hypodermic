@@ -1,9 +1,11 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <functional>
 #include <memory>
 #include <type_traits>
 #include <vector>
+#endif
 
 #include "Hypodermic/Config.h"
 #include "Hypodermic/FactoryWrapper.h"

@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <utility>
+#endif
 
 
 namespace Hypodermic

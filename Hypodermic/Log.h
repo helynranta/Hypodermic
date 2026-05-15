@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <sstream>
+#endif
 
 #include "Hypodermic/Logger.h"
 #include "Hypodermic/LogLevel.h"

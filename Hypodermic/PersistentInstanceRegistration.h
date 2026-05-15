@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <unordered_map>
+#endif
 
 #include "Hypodermic/IRegistration.h"
 #include "Hypodermic/TypeInfo.h"

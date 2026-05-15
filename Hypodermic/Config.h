@@ -1,5 +1,28 @@
 #pragma once
 
+#if defined(HYPODERMIC_USE_STD_MODULE)
+import std;
+#else
+# include <algorithm>
+# include <cstdint>
+# include <exception>
+# include <functional>
+# include <iostream>
+# include <memory>
+# include <mutex>
+# include <ostream>
+# include <regex>
+# include <sstream>
+# include <string>
+# include <typeindex>
+# include <typeinfo>
+# include <type_traits>
+# include <unordered_map>
+# include <unordered_set>
+# include <utility>
+# include <vector>
+#endif
+
 #if defined(_MSC_VER)
 
 # if _MSC_VER < 1800

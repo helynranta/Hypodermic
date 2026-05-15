@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <memory>
+#endif
 
 #include "Hypodermic/InstanceFactory.h"
 #include "Hypodermic/IRegistration.h"

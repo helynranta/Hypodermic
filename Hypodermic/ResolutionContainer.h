@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <exception>
 #include <mutex>
 #include <sstream>
+#endif
 
 #include <boost/range/sub_range.hpp>
 

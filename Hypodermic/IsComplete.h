@@ -1,7 +1,9 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <type_traits>
 #include <utility>
+#endif
 
 #include "Hypodermic/Config.h"
 

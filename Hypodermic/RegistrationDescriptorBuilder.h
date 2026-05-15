@@ -1,6 +1,8 @@
 #pragma once
 
+#ifndef HYPODERMIC_USE_STD_MODULE
 #include <type_traits>
+#endif
 
 #include "Hypodermic/AutowireableConstructor.h"
 #include "Hypodermic/AutowireableConstructorRegistrationDescriptor.h"
